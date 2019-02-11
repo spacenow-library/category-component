@@ -27,7 +27,7 @@ class ListCategories extends Component {
           }
     }
 
-    categoryList = (category) => {
+    renderCategoryList = (category) => {
         return (
             <React.Fragment key={category.id}>
                 <li>{category.itemName}</li>
@@ -39,7 +39,7 @@ class ListCategories extends Component {
         const { data } = this.state;
         return (
             <>
-                { [].concat(data).map(this.categoryList) }
+                { [].concat(data).sort((a, b) => a - b).map(this.renderCategoryList) }
             </>
         );
     }
